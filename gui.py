@@ -33,7 +33,7 @@ class MastermindGame(QWidget):
         self.layout = QVBoxLayout()
         self.layout_color = QHBoxLayout()
         self.layout_label = QHBoxLayout()
-    
+
         self.available_colors_label = QLabel("Available Colors")
         self.layout_label.addWidget(self.available_colors_label)
 
@@ -42,7 +42,7 @@ class MastermindGame(QWidget):
             self.available_colors_list.addItem(color.name)
         self.layout_color.addWidget(self.available_colors_list)
 
-        
+
         self.user_selected_colors_label = QLabel("Guess Colors")
         self.layout_label.addWidget(self.user_selected_colors_label)
 
@@ -51,7 +51,7 @@ class MastermindGame(QWidget):
 
         self.layout.addLayout(self.layout_label)
         self.layout.addLayout(self.layout_color)
-        
+
         self.button_layout = QHBoxLayout()
 
         self.move_right_button = QPushButton("Move Right ->")
@@ -80,11 +80,11 @@ class MastermindGame(QWidget):
         self.reset_button = QPushButton('Restart Game')
         self.reset_button.clicked.connect(self.reset_values)
         self.button_layout1.addWidget(self.reset_button)
-        
+
         self.submit_button = QPushButton('Submit Guess')
         self.submit_button.clicked.connect(self.checkGuess)
         self.button_layout1.addWidget(self.submit_button)
-        
+
         self.layout.addLayout(self.button_layout1)
 
     def moveRight(self):
@@ -126,7 +126,7 @@ class MastermindGame(QWidget):
 
 
         try:
-            
+
             (progress, result) = play(self.total_attempts, self.selected_colors, self.user_selected_colors)
 
             match_string = ""
@@ -156,13 +156,13 @@ class MastermindGame(QWidget):
 
 
     def winUI(self):
-    
+
         self.available_colors = []
         self.user_selected_colors = []
         self.updateLists()
 
         self.message_label.setText("Congratulations You Win !!")
-        
+
 
     def looseUI(self):
 

@@ -75,7 +75,7 @@ def is_winner(match_result):
 
 def play(number_of_attempts, selected_colors, provided_colors):
 	check_max_attempts_not_exceeded(number_of_attempts) 
-	
+
 	match_result = guess(selected_colors, provided_colors)
 
 	return (game_progress(number_of_attempts, is_winner(match_result)), match_result)
@@ -86,7 +86,7 @@ def set_new_seed():
 
 def select_distinct_colors():
 	random.seed(SEED_VALUE)
-	
+
 	set_new_seed()
 
 	return random.sample(AVAILABLE_COLORS_POOL.value, 6)
